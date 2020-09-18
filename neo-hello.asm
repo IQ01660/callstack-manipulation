@@ -22,7 +22,10 @@
 main:                                 ; Called by the C library stub code.
 
 	;; CALL string_length () TO GET THE LENGTH OF THE MESSAGE TO PRINT.
-	
+        mov     rdi, greetings      ; first argument into string_length - the ptr to the str
+	sub 	rsp, 8		    ; adding padding to the stack to make rsp % 16 = 0
+        call    string_length       ; calling string length, which will also ad 8 byte addr to return to to the stack
+	add     rsp, 8    	    ; removing the padding	
 	
 	;; Use the length provided to print the message.
 	mov	rdx, rax	    ; rdx gets the number of bytes to write.

@@ -73,7 +73,7 @@ exp_recursive_case:
         section   .data		         ; The start of the data portion of the program.
 
 x:	dq	2
-y:	dq	5
+y:	dq	9
 	
 int_format_string:	
 	db        "%d", 10, 0	         ; Formatting string for an int, newline, null-terminator.
